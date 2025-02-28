@@ -1,0 +1,10 @@
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\bin\Debug\PI - Sistema Gato Preto manga.exe.config
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\bin\Debug\PI - Sistema Gato Preto manga.exe
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\bin\Debug\PI - Sistema Gato Preto manga.pdb
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.csproj.AssemblyReference.cache
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI___Sistema_Gato_Preto_manga.Form1.resources
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI___Sistema_Gato_Preto_manga.Properties.Resources.resources
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.csproj.GenerateResource.cache
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.csproj.CoreCompileInputs.cache
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.exe
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.pdb
