@@ -21,5 +21,10 @@ namespace PI___Sistema_Gato_Preto_manga
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

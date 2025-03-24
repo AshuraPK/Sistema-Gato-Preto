@@ -54,7 +54,9 @@
             this.Fechar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +108,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 280);
+            this.label6.Location = new System.Drawing.Point(32, 274);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 5;
@@ -124,7 +126,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(316, 258);
+            this.label8.Location = new System.Drawing.Point(278, 265);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 7;
@@ -142,7 +144,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(323, 72);
+            this.label10.Location = new System.Drawing.Point(278, 87);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 9;
@@ -210,7 +212,7 @@
             // comboBoxVolumes
             // 
             this.comboBoxVolumes.FormattingEnabled = true;
-            this.comboBoxVolumes.Location = new System.Drawing.Point(90, 280);
+            this.comboBoxVolumes.Location = new System.Drawing.Point(85, 274);
             this.comboBoxVolumes.Name = "comboBoxVolumes";
             this.comboBoxVolumes.Size = new System.Drawing.Size(109, 21);
             this.comboBoxVolumes.TabIndex = 15;
@@ -232,7 +234,7 @@
             // 
             // richTextBoxSinopse
             // 
-            this.richTextBoxSinopse.Location = new System.Drawing.Point(367, 258);
+            this.richTextBoxSinopse.Location = new System.Drawing.Point(329, 265);
             this.richTextBoxSinopse.Name = "richTextBoxSinopse";
             this.richTextBoxSinopse.Size = new System.Drawing.Size(134, 96);
             this.richTextBoxSinopse.TabIndex = 17;
@@ -240,7 +242,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(373, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(328, 87);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(134, 83);
             this.pictureBox1.TabIndex = 18;
@@ -251,13 +253,13 @@
             this.maskedTextAnoLancamento.Location = new System.Drawing.Point(143, 179);
             this.maskedTextAnoLancamento.Mask = "0000";
             this.maskedTextAnoLancamento.Name = "maskedTextAnoLancamento";
-            this.maskedTextAnoLancamento.Size = new System.Drawing.Size(36, 20);
+            this.maskedTextAnoLancamento.Size = new System.Drawing.Size(33, 20);
             this.maskedTextAnoLancamento.TabIndex = 19;
             this.maskedTextAnoLancamento.ValidatingType = typeof(System.DateTime);
             // 
             // buttonEscolherImg
             // 
-            this.buttonEscolherImg.Location = new System.Drawing.Point(367, 161);
+            this.buttonEscolherImg.Location = new System.Drawing.Point(326, 176);
             this.buttonEscolherImg.Name = "buttonEscolherImg";
             this.buttonEscolherImg.Size = new System.Drawing.Size(137, 23);
             this.buttonEscolherImg.TabIndex = 20;
@@ -266,7 +268,7 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(281, 394);
+            this.buttonCadastrar.Location = new System.Drawing.Point(302, 394);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(93, 23);
             this.buttonCadastrar.TabIndex = 21;
@@ -275,7 +277,7 @@
             // 
             // buttonLimparCampos
             // 
-            this.buttonLimparCampos.Location = new System.Drawing.Point(452, 394);
+            this.buttonLimparCampos.Location = new System.Drawing.Point(422, 394);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(97, 23);
             this.buttonLimparCampos.TabIndex = 22;
@@ -293,21 +295,30 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(540, 80);
+            this.button1.Location = new System.Drawing.Point(674, 23);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 23);
+            this.button1.Size = new System.Drawing.Size(118, 38);
             this.button1.TabIndex = 24;
             this.button1.Text = "Pesquisar Mangá";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(540, 124);
+            this.button2.Location = new System.Drawing.Point(674, 356);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 23);
+            this.button2.Size = new System.Drawing.Size(118, 28);
             this.button2.TabIndex = 25;
             this.button2.Text = "Remover mangá";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(592, 67);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(200, 283);
+            this.dataGridView1.TabIndex = 28;
             // 
             // GerenciamentoMangas
             // 
@@ -315,7 +326,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(797, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Fechar);
@@ -341,10 +353,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Name = "GerenciamentoMangas";
             this.Text = "GerenciamentoMangas";
             this.Load += new System.EventHandler(this.GerenciamentoMangas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +391,6 @@
         private System.Windows.Forms.Button Fechar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
