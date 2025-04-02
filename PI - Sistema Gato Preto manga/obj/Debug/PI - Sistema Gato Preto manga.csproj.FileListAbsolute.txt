@@ -8,3 +8,5 @@ C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistem
 C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.csproj.CoreCompileInputs.cache
 C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.exe
 C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.pdb
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI___Sistema_Gato_Preto_manga.GerenciamentoClientes.resources
+C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI___Sistema_Gato_Preto_manga.GerenciamentoMangas.resources
