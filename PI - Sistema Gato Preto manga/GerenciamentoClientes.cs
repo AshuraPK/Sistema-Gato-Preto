@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,15 +24,17 @@ namespace PI___Sistema_Gato_Preto_manga
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBoxNomeCompleto.Text = "";
-            maskedsenha.Text = "";
+            textBoxNome.Text = "";
+            textBoxSenha.Text = "";
+            maskedDataNascimento.Text = "";
             textBoxEmail.Text = "";
-            maskedTextBoxCEP.Text = "";
             maskedTextBoxCPF.Text = "";
-            maskedTextBoxNumero.Text = "";
             maskedTextBoxTelefone.Text = "";
+            textBoxPais.Text = "";
+            textBoxEndereco.Text = "";
+            textBoxCidade.Text = "";
             pictureBox1.Text = "";
-            textBoxNomeCompleto.Focus();
+            textBoxNome.Focus();
         }
 
         private void GerenciamentoClientes_Load(object sender, EventArgs e)
@@ -52,38 +56,72 @@ namespace PI___Sistema_Gato_Preto_manga
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            try
+            string cpf = maskedTextBoxCPF.Text;
+
+            if (ValidarCpf(cpf))
             {
-                // Converter a imagem para um array de bytes
-                MemoryStream ms = new MemoryStream();
-                pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
-                byte[] imageBytes = ms.ToArray();
-                //Abre a conexão
-                //Abre a conexão
-                conexao.Open();
-
-                //Crie o comando SQL
-                using (MySqlCommand comando = new MySqlCommand(query, conexao))
-                {
-                    //Adicionar os parâmetros com os valores dos TexBox
-                    comando.Parameters.AddWithValue("@Nome", textBoxNomeCompleto.Text);
-                    comando.Parameters.AddWithValue("@Senha", maskedsenha.Text);
-                    comando.Parameters.AddWithValue("@Email", textBoxEmail.Text);
-                    comando.Parameters.AddWithValue("@Cep", maskedTextBoxCEP.Text);
-                    comando.Parameters.AddWithValue("@Cpf", maskedTextBoxCPF.Text);
-                    comando.Parameters.AddWithValue("@Numero", maskedTextBoxNumero.Text);
-                    comando.Parameters.AddWithValue("@Telefone", maskedTextBoxTelefone.Text);
-                    comando.Parameters.AddWithValue("@Imagem", imageBytes);
-
-                    // Executa o comando de inserção
-                    comando.ExecuteNonQuery();
-                    MessageBox.Show("Dados inseridos com sucesso!");
-                }
+                labelAlert.Text = "CPF VÁLIDO";
+                labelAlert.ForeColor = Color.Green;
             }
-            catch (Exception ex)
+            else
             {
-                // em Caso de erro, exiba mensagem do erro
-                MessageBox.Show("Erro: " + ex.Message);
+
+                labelAlert.Text = "CPF INVÁLIDO";
+                labelAlert.ForeColor = Color.Red;
+                maskedTextBoxCPF.Text = "";
+                maskedTextBoxCPF.Focus();
+            }
+
+            //Defuna sua string de conexão com o banco
+            string conexaoString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;";
+
+            //defina a inserção de registro no BD
+
+            string query = "INSERT INTO tb_Clientes (nome, dataNascimento, email, telefone, endereco, cidade, estado, cep, pais, cpf, senha, imagem) VALUES (@nome, @dataNascimento, @email, @telefone, @endereco, @cidade, @estado, @cep, @pais, @cpf, @senha, @imagem)";
+
+            // Crie uma conexão com o BD
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+
+                try
+                {
+                    // Converter a imagem para um array de bytes
+                    MemoryStream ms = new MemoryStream();
+                    pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
+                    byte[] imageBytes = ms.ToArray();
+                    //Abre a conexão
+                    //Abre a conexão
+                    conexao.Open();
+
+                    //Crie o comando SQL
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    {
+                        //Adicionar os parâmetros com os valores dos TexBox
+                        comando.Parameters.AddWithValue("@nome", textBoxNome.Text);
+                        comando.Parameters.AddWithValue("@dataNascimento", maskedDataNascimento.Text);
+                        comando.Parameters.AddWithValue("@email", textBoxEmail.Text);
+                        comando.Parameters.AddWithValue("@telefone", maskedTextBoxTelefone.Text);
+                        comando.Parameters.AddWithValue("@endereco", textBoxEndereco.Text);
+                        comando.Parameters.AddWithValue("@cidade", textBoxCidade.Text);
+                        comando.Parameters.AddWithValue("@estado", textBoxEstado.Text);
+                        comando.Parameters.AddWithValue("@cep", maskedTextBoxCEP.Text);
+                        comando.Parameters.AddWithValue("@pais", textBoxPais.Text);
+                        comando.Parameters.AddWithValue("@cpf", maskedTextBoxCPF.Text);
+                        comando.Parameters.AddWithValue("@senha", textBoxSenha.Text);
+                        comando.Parameters.AddWithValue("@imagem", imageBytes);
+
+                        // Executa o comando de inserção
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Dados inseridos com sucesso!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // em Caso de erro, exiba mensagem do erro
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+
             }
         }
 
@@ -109,7 +147,7 @@ namespace PI___Sistema_Gato_Preto_manga
         {
 
             //Defina sua string de conexão com o banco
-            string connectionString = "Server=localhost; Port=3306; Database=bd_lanche_damaju; Uid=root; Pwd=;";
+            string connectionString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;Convert Zero Datetime=True";
 
             try
             {
@@ -119,7 +157,7 @@ namespace PI___Sistema_Gato_Preto_manga
                     //abre a conexão 
                     consulta.Open();
                     //consulta SQL para selecionar os Produtos
-                    string listagem = "SELECT Id_Cliente, Nome, Senha, Email, Cep, Cpf, Numero, Telefone, Imagem FROM tb_cliente";
+                    string listagem = "SELECT id, nome, dataNascimento, email, telefone, endereco, cidade, estado, cep, pais, cpf, senha, imagem FROM tb_clientes";
 
                     //Cria o comando Mysql
                     using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
@@ -147,13 +185,13 @@ namespace PI___Sistema_Gato_Preto_manga
             if (dgvClientes.SelectedRows.Count > 0)
             {
                 //pega ID do cliente da linha selecionada 
-                int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["Id_Cliente"].Value);
+                int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["id"].Value);
 
                 DialogResult result = MessageBox.Show("Tem certeza que deseja excluir este Cliente?", "Confirmar Exclusão", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
-                    string connectionString = "Server=localhost; Port=3306; Database=bd_lanche_damaju; Uid=root; Pwd=;";
+                    string connectionString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;";
 
                     try
                     {
@@ -163,11 +201,11 @@ namespace PI___Sistema_Gato_Preto_manga
                             //abre a conexão 
                             consulta.Open();
                             //consulta SQL para selecionar os clientes
-                            string listagem = "DELETE FROM tb_cliente WHERE Id_cliente = @Id_Cliente";
+                            string listagem = "DELETE FROM tb_clientes WHERE id = @id";
 
                             using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
                             {
-                                cmd.Parameters.AddWithValue("Id_Cliente", clienteID);
+                                cmd.Parameters.AddWithValue("id", clienteID);
 
                                 int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -194,8 +232,149 @@ namespace PI___Sistema_Gato_Preto_manga
                 {
                     MessageBox.Show("Por favor, selecione um Clientes para excluir!");
                 }
-
             }
+        }
+
+
+         private bool ValidarCpf(string cpf)
+        {
+            // Remove qualquer caractere não numérico
+            cpf = Regex.Replace(cpf, @"[^\d]", "");
+
+            // Verifica se tem 11 dígitos
+            if (cpf.Length != 11)
+                return false;
+
+            // Verifica se o CPF é uma sequência de números iguais (ex.: 111.111.111-11)
+            if (new string(cpf[0], 11) == cpf)
+                return false;
+
+            // Calculando o primeiro dígito verificador
+            int soma = 0;
+            int peso = 10;
+            for (int i = 0; i < 9; i++)
+            {
+                soma += int.Parse(cpf[i].ToString()) * peso--;
+            }
+
+            int resto = soma % 11;
+            int digito1 = resto < 2 ? 0 : 11 - resto;
+            if (digito1 != int.Parse(cpf[9].ToString()))
+                return false;
+
+            // Calculando o segundo dígito verificador
+            soma = 0;
+            peso = 11;
+            for (int i = 0; i < 10; i++)
+            {
+                soma += int.Parse(cpf[i].ToString()) * peso--;
+            }
+
+            resto = soma % 11;
+            int digito2 = resto < 2 ? 0 : 11 - resto;
+            return digito2 == int.Parse(cpf[10].ToString());
+        
+        
+    }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void maskedTextBoxCEP_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void textBoxSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void textBoxEmail_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void maskedDataNascimento_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

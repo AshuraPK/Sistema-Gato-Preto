@@ -45,23 +45,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.maskedDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxEmail = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxEndereco = new System.Windows.Forms.TextBox();
+            this.textBoxCidade = new System.Windows.Forms.TextBox();
+            this.textBoxEstado = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxPais = new System.Windows.Forms.TextBox();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonEscolherImg = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.textBoxSenha = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxCEP = new System.Windows.Forms.MaskedTextBox();
+            this.labelAlert = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,66 +71,72 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(8, 73);
+            this.label1.Location = new System.Drawing.Point(5, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(8, 162);
+            this.label2.Location = new System.Drawing.Point(5, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Data de Nasc";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(8, 200);
+            this.label3.Location = new System.Drawing.Point(5, 197);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "E-mail";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(8, 244);
+            this.label4.Location = new System.Drawing.Point(5, 241);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Telefone";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(8, 279);
+            this.label5.Location = new System.Drawing.Point(5, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Endereço";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(8, 311);
+            this.label6.Location = new System.Drawing.Point(5, 313);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Cidade";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // buttonCadastrar
             // 
@@ -189,28 +196,30 @@
             // textBoxNome
             // 
             this.textBoxNome.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxNome.Location = new System.Drawing.Point(88, 73);
+            this.textBoxNome.Location = new System.Drawing.Point(85, 70);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(100, 20);
             this.textBoxNome.TabIndex = 13;
+            this.textBoxNome.TextChanged += new System.EventHandler(this.textBoxNome_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Location = new System.Drawing.Point(8, 349);
+            this.label7.Location = new System.Drawing.Point(5, 351);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Estado";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.Location = new System.Drawing.Point(8, 391);
+            this.label8.Location = new System.Drawing.Point(5, 386);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(26, 13);
             this.label8.TabIndex = 15;
@@ -221,7 +230,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label9.Location = new System.Drawing.Point(214, 118);
+            this.label9.Location = new System.Drawing.Point(214, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 13);
             this.label9.TabIndex = 16;
@@ -233,93 +242,95 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label10.Location = new System.Drawing.Point(214, 70);
+            this.label10.Location = new System.Drawing.Point(218, 118);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 13);
+            this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 17;
-            this.label10.Text = "Cpf";
+            this.label10.Text = "CPF";
             // 
-            // maskedTextBox1
+            // maskedDataNascimento
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedTextBox1.Location = new System.Drawing.Point(88, 156);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 18;
+            this.maskedDataNascimento.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.maskedDataNascimento.Location = new System.Drawing.Point(85, 153);
+            this.maskedDataNascimento.Mask = "00/00/0000";
+            this.maskedDataNascimento.Name = "maskedDataNascimento";
+            this.maskedDataNascimento.Size = new System.Drawing.Size(100, 20);
+            this.maskedDataNascimento.TabIndex = 18;
+            this.maskedDataNascimento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedDataNascimento_MaskInputRejected);
             // 
-            // maskedTextBox2
+            // textBoxEmail
             // 
-            this.maskedTextBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedTextBox2.Location = new System.Drawing.Point(88, 197);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox2.TabIndex = 19;
+            this.textBoxEmail.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxEmail.Location = new System.Drawing.Point(85, 194);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEmail.TabIndex = 19;
+            this.textBoxEmail.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.textBoxEmail_MaskInputRejected);
             // 
-            // maskedTextBox3
+            // maskedTextBoxTelefone
             // 
-            this.maskedTextBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedTextBox3.Location = new System.Drawing.Point(88, 237);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox3.TabIndex = 20;
+            this.maskedTextBoxTelefone.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.maskedTextBoxTelefone.Location = new System.Drawing.Point(85, 234);
+            this.maskedTextBoxTelefone.Mask = "(99) 00000-0000";
+            this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
+            this.maskedTextBoxTelefone.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBoxTelefone.TabIndex = 20;
+            this.maskedTextBoxTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             // 
-            // textBox2
+            // textBoxEndereco
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox2.Location = new System.Drawing.Point(88, 272);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 21;
+            this.textBoxEndereco.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxEndereco.Location = new System.Drawing.Point(85, 269);
+            this.textBoxEndereco.Name = "textBoxEndereco";
+            this.textBoxEndereco.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEndereco.TabIndex = 21;
+            this.textBoxEndereco.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // textBoxCidade
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox3.Location = new System.Drawing.Point(88, 304);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 22;
+            this.textBoxCidade.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxCidade.Location = new System.Drawing.Point(85, 306);
+            this.textBoxCidade.Name = "textBoxCidade";
+            this.textBoxCidade.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCidade.TabIndex = 22;
+            this.textBoxCidade.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox4
+            // textBoxEstado
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox4.Location = new System.Drawing.Point(88, 342);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 23;
+            this.textBoxEstado.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxEstado.Location = new System.Drawing.Point(85, 344);
+            this.textBoxEstado.Name = "textBoxEstado";
+            this.textBoxEstado.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEstado.TabIndex = 23;
+            this.textBoxEstado.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox5
+            // maskedTextBoxCPF
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox5.Location = new System.Drawing.Point(88, 384);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 24;
+            this.maskedTextBoxCPF.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.maskedTextBoxCPF.Location = new System.Drawing.Point(259, 111);
+            this.maskedTextBoxCPF.Mask = "000.000.000-00";
+            this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
+            this.maskedTextBoxCPF.Size = new System.Drawing.Size(142, 20);
+            this.maskedTextBoxCPF.TabIndex = 25;
             // 
-            // maskedTextBox4
+            // textBoxPais
             // 
-            this.maskedTextBox4.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedTextBox4.Location = new System.Drawing.Point(247, 70);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(142, 20);
-            this.maskedTextBox4.TabIndex = 25;
+            this.textBoxPais.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxPais.Location = new System.Drawing.Point(259, 70);
+            this.textBoxPais.Name = "textBoxPais";
+            this.textBoxPais.Size = new System.Drawing.Size(142, 20);
+            this.textBoxPais.TabIndex = 26;
             // 
-            // textBox6
+            // dgvClientes
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox6.Location = new System.Drawing.Point(247, 114);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(142, 20);
-            this.textBox6.TabIndex = 26;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(572, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(200, 283);
-            this.dataGridView1.TabIndex = 27;
+            this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvClientes.Location = new System.Drawing.Point(572, 21);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(200, 283);
+            this.dgvClientes.TabIndex = 27;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // label11
             // 
@@ -369,20 +380,42 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label13.Location = new System.Drawing.Point(8, 121);
+            this.label13.Location = new System.Drawing.Point(5, 118);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 13);
             this.label13.TabIndex = 32;
             this.label13.Text = "Senha";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
-            // textBox7
+            // textBoxSenha
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox7.Location = new System.Drawing.Point(88, 114);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.PasswordChar = '*';
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 33;
+            this.textBoxSenha.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxSenha.Location = new System.Drawing.Point(85, 111);
+            this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.PasswordChar = '*';
+            this.textBoxSenha.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSenha.TabIndex = 33;
+            this.textBoxSenha.TextChanged += new System.EventHandler(this.textBoxSenha_TextChanged);
+            // 
+            // maskedTextBoxCEP
+            // 
+            this.maskedTextBoxCEP.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.maskedTextBoxCEP.Location = new System.Drawing.Point(85, 379);
+            this.maskedTextBoxCEP.Mask = "00000-999";
+            this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
+            this.maskedTextBoxCEP.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBoxCEP.TabIndex = 34;
+            this.maskedTextBoxCEP.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCEP_MaskInputRejected);
+            // 
+            // labelAlert
+            // 
+            this.labelAlert.AutoSize = true;
+            this.labelAlert.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelAlert.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelAlert.Location = new System.Drawing.Point(411, 135);
+            this.labelAlert.Name = "labelAlert";
+            this.labelAlert.Size = new System.Drawing.Size(0, 13);
+            this.labelAlert.TabIndex = 37;
             // 
             // GerenciamentoClientes
             // 
@@ -392,22 +425,23 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.labelAlert);
+            this.Controls.Add(this.maskedTextBoxCEP);
+            this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.buttonEscolherImg);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.maskedTextBox4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.dgvClientes);
+            this.Controls.Add(this.textBoxPais);
+            this.Controls.Add(this.maskedTextBoxCPF);
+            this.Controls.Add(this.textBoxEstado);
+            this.Controls.Add(this.textBoxCidade);
+            this.Controls.Add(this.textBoxEndereco);
+            this.Controls.Add(this.maskedTextBoxTelefone);
+            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.maskedDataNascimento);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -427,7 +461,7 @@
             this.Name = "GerenciamentoClientes";
             this.Text = "GerenciamentoClientes";
             this.Load += new System.EventHandler(this.GerenciamentoClientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -452,21 +486,22 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.MaskedTextBox maskedDataNascimento;
+        private System.Windows.Forms.MaskedTextBox textBoxEmail;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefone;
+        private System.Windows.Forms.TextBox textBoxEndereco;
+        private System.Windows.Forms.TextBox textBoxCidade;
+        private System.Windows.Forms.TextBox textBoxEstado;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
+        private System.Windows.Forms.TextBox textBoxPais;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonEscolherImg;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxSenha;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCEP;
+        private System.Windows.Forms.Label labelAlert;
     }
 }
