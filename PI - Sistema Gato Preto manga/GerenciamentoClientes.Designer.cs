@@ -144,7 +144,7 @@
             this.buttonCadastrar.Location = new System.Drawing.Point(280, 367);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(109, 37);
-            this.buttonCadastrar.TabIndex = 8;
+            this.buttonCadastrar.TabIndex = 13;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = false;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
@@ -155,7 +155,7 @@
             this.buttonLimparCampo.Location = new System.Drawing.Point(414, 367);
             this.buttonLimparCampo.Name = "buttonLimparCampo";
             this.buttonLimparCampo.Size = new System.Drawing.Size(101, 37);
-            this.buttonLimparCampo.TabIndex = 9;
+            this.buttonLimparCampo.TabIndex = 14;
             this.buttonLimparCampo.Text = "Limpar Campos";
             this.buttonLimparCampo.UseVisualStyleBackColor = false;
             this.buttonLimparCampo.Click += new System.EventHandler(this.button2_Click);
@@ -166,7 +166,7 @@
             this.buttonFechar.Location = new System.Drawing.Point(644, 389);
             this.buttonFechar.Name = "buttonFechar";
             this.buttonFechar.Size = new System.Drawing.Size(116, 34);
-            this.buttonFechar.TabIndex = 10;
+            this.buttonFechar.TabIndex = 17;
             this.buttonFechar.Text = "Fechar";
             this.buttonFechar.UseVisualStyleBackColor = false;
             this.buttonFechar.Click += new System.EventHandler(this.buttonFechar_Click);
@@ -177,7 +177,7 @@
             this.buttonConsultarCliente.Location = new System.Drawing.Point(460, 25);
             this.buttonConsultarCliente.Name = "buttonConsultarCliente";
             this.buttonConsultarCliente.Size = new System.Drawing.Size(106, 46);
-            this.buttonConsultarCliente.TabIndex = 11;
+            this.buttonConsultarCliente.TabIndex = 15;
             this.buttonConsultarCliente.Text = "Consultar Cliente";
             this.buttonConsultarCliente.UseVisualStyleBackColor = false;
             this.buttonConsultarCliente.Click += new System.EventHandler(this.buttonConsultarCliente_Click);
@@ -188,7 +188,7 @@
             this.buttonExcluirCliente.Location = new System.Drawing.Point(460, 96);
             this.buttonExcluirCliente.Name = "buttonExcluirCliente";
             this.buttonExcluirCliente.Size = new System.Drawing.Size(106, 23);
-            this.buttonExcluirCliente.TabIndex = 12;
+            this.buttonExcluirCliente.TabIndex = 16;
             this.buttonExcluirCliente.Text = "Excluir Cliente";
             this.buttonExcluirCliente.UseVisualStyleBackColor = false;
             this.buttonExcluirCliente.Click += new System.EventHandler(this.buttonExcluirCliente_Click);
@@ -199,7 +199,7 @@
             this.textBoxNome.Location = new System.Drawing.Point(85, 70);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(100, 20);
-            this.textBoxNome.TabIndex = 13;
+            this.textBoxNome.TabIndex = 1;
             this.textBoxNome.TextChanged += new System.EventHandler(this.textBoxNome_TextChanged);
             // 
             // label7
@@ -255,7 +255,7 @@
             this.maskedDataNascimento.Mask = "00/00/0000";
             this.maskedDataNascimento.Name = "maskedDataNascimento";
             this.maskedDataNascimento.Size = new System.Drawing.Size(100, 20);
-            this.maskedDataNascimento.TabIndex = 18;
+            this.maskedDataNascimento.TabIndex = 3;
             this.maskedDataNascimento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedDataNascimento_MaskInputRejected);
             // 
             // textBoxEmail
@@ -264,7 +264,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(85, 194);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEmail.TabIndex = 19;
+            this.textBoxEmail.TabIndex = 4;
             this.textBoxEmail.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.textBoxEmail_MaskInputRejected);
             // 
             // maskedTextBoxTelefone
@@ -274,7 +274,7 @@
             this.maskedTextBoxTelefone.Mask = "(99) 00000-0000";
             this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBoxTelefone.TabIndex = 20;
+            this.maskedTextBoxTelefone.TabIndex = 5;
             this.maskedTextBoxTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             // 
             // textBoxEndereco
@@ -283,7 +283,7 @@
             this.textBoxEndereco.Location = new System.Drawing.Point(85, 269);
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEndereco.TabIndex = 21;
+            this.textBoxEndereco.TabIndex = 6;
             this.textBoxEndereco.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBoxCidade
@@ -292,7 +292,7 @@
             this.textBoxCidade.Location = new System.Drawing.Point(85, 306);
             this.textBoxCidade.Name = "textBoxCidade";
             this.textBoxCidade.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCidade.TabIndex = 22;
+            this.textBoxCidade.TabIndex = 7;
             this.textBoxCidade.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBoxEstado
@@ -301,7 +301,7 @@
             this.textBoxEstado.Location = new System.Drawing.Point(85, 344);
             this.textBoxEstado.Name = "textBoxEstado";
             this.textBoxEstado.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEstado.TabIndex = 23;
+            this.textBoxEstado.TabIndex = 8;
             this.textBoxEstado.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // maskedTextBoxCPF
@@ -311,7 +311,8 @@
             this.maskedTextBoxCPF.Mask = "000.000.000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(142, 20);
-            this.maskedTextBoxCPF.TabIndex = 25;
+            this.maskedTextBoxCPF.TabIndex = 11;
+            this.maskedTextBoxCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCPF_MaskInputRejected);
             // 
             // textBoxPais
             // 
@@ -319,7 +320,7 @@
             this.textBoxPais.Location = new System.Drawing.Point(259, 70);
             this.textBoxPais.Name = "textBoxPais";
             this.textBoxPais.Size = new System.Drawing.Size(142, 20);
-            this.textBoxPais.TabIndex = 26;
+            this.textBoxPais.TabIndex = 10;
             // 
             // dgvClientes
             // 
@@ -350,7 +351,7 @@
             this.buttonEscolherImg.Location = new System.Drawing.Point(280, 285);
             this.buttonEscolherImg.Name = "buttonEscolherImg";
             this.buttonEscolherImg.Size = new System.Drawing.Size(137, 23);
-            this.buttonEscolherImg.TabIndex = 31;
+            this.buttonEscolherImg.TabIndex = 12;
             this.buttonEscolherImg.Text = "Escolher imagem";
             this.buttonEscolherImg.UseVisualStyleBackColor = false;
             this.buttonEscolherImg.Click += new System.EventHandler(this.buttonEscolherImg_Click);
@@ -394,7 +395,7 @@
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.PasswordChar = '*';
             this.textBoxSenha.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSenha.TabIndex = 33;
+            this.textBoxSenha.TabIndex = 2;
             this.textBoxSenha.TextChanged += new System.EventHandler(this.textBoxSenha_TextChanged);
             // 
             // maskedTextBoxCEP
@@ -404,7 +405,7 @@
             this.maskedTextBoxCEP.Mask = "00000-999";
             this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
             this.maskedTextBoxCEP.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBoxCEP.TabIndex = 34;
+            this.maskedTextBoxCEP.TabIndex = 9;
             this.maskedTextBoxCEP.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCEP_MaskInputRejected);
             // 
             // labelAlert

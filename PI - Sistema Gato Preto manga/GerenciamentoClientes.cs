@@ -376,5 +376,10 @@ namespace PI___Sistema_Gato_Preto_manga
         {
 
         }
+
+        private void maskedTextBoxCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

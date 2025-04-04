@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace PI___Sistema_Gato_Preto_manga
 {
@@ -24,7 +26,58 @@ namespace PI___Sistema_Gato_Preto_manga
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (dgvMangas.SelectedRows.Count > 0)
+            {
+                //pega ID do cliente da linha selecionada 
+                int produtoID = Convert.ToInt32(dgvMangas.SelectedRows[0].Cells["id"].Value);
 
+                DialogResult result = MessageBox.Show("Tem certeza que deseja excluir este Produto?", "Confirmar Exclusão", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    string connectionString = "Server=localhost; Port=3306; Database= bd_gato_preto; Uid=root; Pwd=;";
+
+                    try
+                    {
+                        //Cria uma conexão com o banco de dados Mysql
+                        using (MySqlConnection consulta = new MySqlConnection(connectionString))
+                        {
+                            //abre a conexão 
+                            consulta.Open();
+                            //consulta SQL para selecionar os Produtos
+                            string listagem = "DELETE FROM tb_mangas WHERE id = @id";
+
+                            using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
+                            {
+                                cmd.Parameters.AddWithValue("id", produtoID);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Mangá excluido com sucesso!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Falha ao excluir o Mangá");
+                                }
+                            }
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao listar os Produtos:" + ex.Message);
+                    }
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Por favor, selecione um Produtos para excluir!");
+                }
+
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -125,6 +178,128 @@ namespace PI___Sistema_Gato_Preto_manga
         private void textBoxAutor_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Defina sua string de conexão com o banco
+            string connectionString = "Server=localhost; Port=3306; Database= bd_gato_preto; Uid=root; Pwd=;";
+
+            try
+            {
+                //Cria uma conexão com o banco de dados Mysql
+                using (MySqlConnection consulta = new MySqlConnection(connectionString))
+                {
+                    //abre a conexão 
+                    consulta.Open();
+                    //consulta SQL para selecionar os Produtos
+                    string listagem = "SELECT id, titulo, genero, ano_de_lancamento, status, capitulos, classificacao_indicativa, sinopse, autor, capas FROM tb_mangas";
+
+                    //Cria o comando Mysql
+                    using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
+                    {
+                        //Executa a consulta e obtém o resultados
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        //Cria uma lista para armazenar os registros
+                        DataTable dadosProdutos = new DataTable();
+                        dadosProdutos.Load(reader);
+
+                        //Atribui a tabela de dados ao DataGridView
+                        dgvMangas.DataSource = dadosProdutos;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao listar os Produtos:" + ex.Message);
+            }
+
+        }
+
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+
+            //DefIna sua string de conexão com o banco
+            string conexaoString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;";
+
+            //defina a inserção de registro no BD
+
+            string query = "INSERT INTO tb_mangas (titulo, genero, ano_de_lançamento, status, capitulos, classificacao_indicativa, sinopse, autor, capas) VALUES (@titulo, @genero, @ano_de_lançamento, @status, @capitulos, @classificacao_indicativa, @sinopse, @autor, @capas)";
+
+            // Crie uma conexão com o BD
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    // Converter a imagem para um array de bytes
+                    MemoryStream ms = new MemoryStream();
+                    pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
+                    byte[] imageBytes = ms.ToArray();
+                    //Abre a conexão
+                    //Abre a conexão
+                    conexao.Open();
+
+                    //Crie o comando SQL
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    {
+                        //Adicionar os parâmetros com os valores dos TexBox
+                        comando.Parameters.AddWithValue("@titulo", textBoxTitulo.Text);
+                        comando.Parameters.AddWithValue("@genero", comboBoxGenero.Text);
+                        comando.Parameters.AddWithValue("@ano_de_lançamento", maskedTextAnoLancamento.Text);
+                        comando.Parameters.AddWithValue("@status", comboBoxStatus.Text);
+                        comando.Parameters.AddWithValue("@volumes", comboBoxVolumes.Text);
+                        comando.Parameters.AddWithValue("@classificacao_indicativa", comboBoxClassificacaoIndicativa.Text);
+                        comando.Parameters.AddWithValue("@autor", textBoxAutor.Text);
+                        comando.Parameters.AddWithValue("@sinopse", richTextBoxSinopse.Text);
+                        comando.Parameters.AddWithValue("@capas", pictureBox1.Text);
+                        comando.Parameters.AddWithValue("@capas", imageBytes);
+
+                        // Executa o comando de inserção
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Dados inseridos com sucesso!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // em Caso de erro, exiba mensagem do erro
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+        }
+
+        private void buttonEscolherImg_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog OpenFileDialog = new OpenFileDialog();
+
+            // Criar um OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Definir o filtro para apenas arquivos de imagem
+            openFileDialog.Filter = "Imagens (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+
+            // Se o usuário escolher um arquivo
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Carregar a imagem no PictureBox
+                pictureBox1.Image = new System.Drawing.Bitmap(openFileDialog.FileName);
+            }
+        }
+
+        private void buttonLimparCampos_Click(object sender, EventArgs e)
+        {
+            textBoxTitulo.Text = "";
+            comboBoxGenero.Text = "";
+            maskedTextAnoLancamento.Text = "";
+            comboBoxStatus.Text = "";
+            comboBoxVolumes.Text = "";
+            comboBoxClassificacaoIndicativa.Text = "";
+            textBoxAutor.Text = "";
+            richTextBoxSinopse.Text = "";
+            pictureBox1.Text = "";
+            textBoxTitulo.Focus();
         }
     }
 }

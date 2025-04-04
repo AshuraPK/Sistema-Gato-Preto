@@ -73,15 +73,15 @@
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.PasswordChar = '*';
             this.textBoxSenha.Size = new System.Drawing.Size(335, 20);
-            this.textBoxSenha.TabIndex = 8;
+            this.textBoxSenha.TabIndex = 2;
             // 
             // labelMensagem
             // 
             this.labelMensagem.AutoSize = true;
-            this.labelMensagem.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMensagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMensagem.Location = new System.Drawing.Point(441, 237);
             this.labelMensagem.Name = "labelMensagem";
-            this.labelMensagem.Size = new System.Drawing.Size(0, 23);
+            this.labelMensagem.Size = new System.Drawing.Size(0, 24);
             this.labelMensagem.TabIndex = 7;
             // 
             // buttonMostrarSenha
@@ -91,7 +91,7 @@
             this.buttonMostrarSenha.Location = new System.Drawing.Point(503, 187);
             this.buttonMostrarSenha.Name = "buttonMostrarSenha";
             this.buttonMostrarSenha.Size = new System.Drawing.Size(97, 23);
-            this.buttonMostrarSenha.TabIndex = 4;
+            this.buttonMostrarSenha.TabIndex = 6;
             this.buttonMostrarSenha.Text = "Mostrar Senha";
             this.buttonMostrarSenha.UseVisualStyleBackColor = true;
             this.buttonMostrarSenha.Click += new System.EventHandler(this.buttonMostrarSenha_Click);
@@ -103,7 +103,7 @@
             this.buttonLimparCampos.Location = new System.Drawing.Point(495, 119);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(105, 20);
-            this.buttonLimparCampos.TabIndex = 2;
+            this.buttonLimparCampos.TabIndex = 5;
             this.buttonLimparCampos.Text = "Limpar Campos";
             this.buttonLimparCampos.UseVisualStyleBackColor = true;
             this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);
@@ -115,7 +115,7 @@
             this.buttonFechar.Location = new System.Drawing.Point(317, 221);
             this.buttonFechar.Name = "buttonFechar";
             this.buttonFechar.Size = new System.Drawing.Size(91, 39);
-            this.buttonFechar.TabIndex = 6;
+            this.buttonFechar.TabIndex = 4;
             this.buttonFechar.Text = "Fechar";
             this.buttonFechar.UseVisualStyleBackColor = true;
             this.buttonFechar.Click += new System.EventHandler(this.buttonFechar_Click_1);
@@ -127,7 +127,7 @@
             this.buttonEntrar.Location = new System.Drawing.Point(200, 221);
             this.buttonEntrar.Name = "buttonEntrar";
             this.buttonEntrar.Size = new System.Drawing.Size(96, 39);
-            this.buttonEntrar.TabIndex = 5;
+            this.buttonEntrar.TabIndex = 3;
             this.buttonEntrar.Text = "Entrar";
             this.buttonEntrar.UseVisualStyleBackColor = true;
             this.buttonEntrar.Click += new System.EventHandler(this.buttonEntrar_Click);
