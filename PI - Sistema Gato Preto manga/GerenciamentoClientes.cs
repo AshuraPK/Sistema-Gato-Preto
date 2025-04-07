@@ -109,6 +109,7 @@ namespace PI___Sistema_Gato_Preto_manga
                         comando.Parameters.AddWithValue("@pais", textBoxPais.Text);
                         comando.Parameters.AddWithValue("@cpf", maskedTextBoxCPF.Text);
                         comando.Parameters.AddWithValue("@senha", textBoxSenha.Text);
+                        //comando.Parameters.AddWithValue("@imagem", pictureBox1.Text);
                         comando.Parameters.AddWithValue("@imagem", imageBytes);
 
                         // Executa o comando de inserção
@@ -145,40 +146,34 @@ namespace PI___Sistema_Gato_Preto_manga
 
         private void buttonConsultarCliente_Click(object sender, EventArgs e)
         {
-
-            //Defina sua string de conexão com o banco
             string connectionString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;Convert Zero Datetime=True";
 
             try
             {
-                //Cria uma conexão com o banco de dados Mysql
                 using (MySqlConnection consulta = new MySqlConnection(connectionString))
                 {
-                    //abre a conexão 
                     consulta.Open();
-                    //consulta SQL para selecionar os Produtos
                     string listagem = "SELECT id, nome, dataNascimento, email, telefone, endereco, cidade, estado, cep, pais, cpf, senha, imagem FROM tb_clientes";
 
-                    //Cria o comando Mysql
                     using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
                     {
-                        //Executa a consulta e obtém o resultados
                         MySqlDataReader reader = cmd.ExecuteReader();
-
-                        //Cria uma lista para armazenar os registros
                         DataTable dadosClientes = new DataTable();
                         dadosClientes.Load(reader);
 
-                        //Atribui a tabela de dados ao DataGridView
                         dgvClientes.DataSource = dadosClientes;
+
+                        // ✅ Oculta a coluna de imagem (byte[])
+                        dgvClientes.Columns["imagem"].Visible = false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao listar os Clientes:" + ex.Message);
+                MessageBox.Show("Erro ao listar os Clientes: " + ex.Message);
             }
         }
+
 
         private void buttonExcluirCliente_Click(object sender, EventArgs e)
         {
@@ -378,6 +373,11 @@ namespace PI___Sistema_Gato_Preto_manga
         }
 
         private void maskedTextBoxCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

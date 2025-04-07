@@ -62,6 +62,7 @@
             this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.maskedTextBoxCEP = new System.Windows.Forms.MaskedTextBox();
             this.labelAlert = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -359,11 +360,12 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.Location = new System.Drawing.Point(280, 196);
+            this.pictureBox1.Location = new System.Drawing.Point(247, 179);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 83);
+            this.pictureBox1.Size = new System.Drawing.Size(167, 100);
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label12
             // 
@@ -417,6 +419,10 @@
             this.labelAlert.Name = "labelAlert";
             this.labelAlert.Size = new System.Drawing.Size(0, 13);
             this.labelAlert.TabIndex = 37;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // GerenciamentoClientes
             // 
@@ -504,5 +510,6 @@
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCEP;
         private System.Windows.Forms.Label labelAlert;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

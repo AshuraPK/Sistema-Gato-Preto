@@ -182,39 +182,32 @@ namespace PI___Sistema_Gato_Preto_manga
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Defina sua string de conexão com o banco
-            string connectionString = "Server=localhost; Port=3306; Database= bd_gato_preto; Uid=root; Pwd=;";
+            string connectionString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;";
 
             try
             {
-                //Cria uma conexão com o banco de dados Mysql
                 using (MySqlConnection consulta = new MySqlConnection(connectionString))
                 {
-                    //abre a conexão 
                     consulta.Open();
-                    //consulta SQL para selecionar os Produtos
                     string listagem = "SELECT id, titulo, genero, ano_de_lancamento, status, capitulos, classificacao_indicativa, sinopse, autor, capas FROM tb_mangas";
 
-                    //Cria o comando Mysql
                     using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
                     {
-                        //Executa a consulta e obtém o resultados
                         MySqlDataReader reader = cmd.ExecuteReader();
-
-                        //Cria uma lista para armazenar os registros
                         DataTable dadosProdutos = new DataTable();
                         dadosProdutos.Load(reader);
 
-                        //Atribui a tabela de dados ao DataGridView
                         dgvMangas.DataSource = dadosProdutos;
+
+                        // Ocultar a coluna de imagem (byte[])
+                        dgvMangas.Columns["capas"].Visible = false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao listar os Produtos:" + ex.Message);
+                MessageBox.Show("Erro ao listar os Produtos: " + ex.Message);
             }
-
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -225,8 +218,8 @@ namespace PI___Sistema_Gato_Preto_manga
 
             //defina a inserção de registro no BD
 
-            string query = "INSERT INTO tb_mangas (titulo, genero, ano_de_lançamento, status, capitulos, classificacao_indicativa, sinopse, autor, capas) VALUES (@titulo, @genero, @ano_de_lançamento, @status, @capitulos, @classificacao_indicativa, @sinopse, @autor, @capas)";
-
+            string query = "INSERT INTO tb_mangas (titulo, genero, ano_de_lancamento, status, capitulos, classificacao_indicativa, sinopse, autor, capas) " +
+                           "VALUES (@titulo, @genero, @ano_de_lancamento, @status, @capitulos, @classificacao_indicativa, @sinopse, @autor, @capas)";
             // Crie uma conexão com o BD
 
             using (MySqlConnection conexao = new MySqlConnection(conexaoString))
@@ -237,6 +230,7 @@ namespace PI___Sistema_Gato_Preto_manga
                     MemoryStream ms = new MemoryStream();
                     pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
                     byte[] imageBytes = ms.ToArray();
+                    Console.WriteLine(imageBytes);
                     //Abre a conexão
                     //Abre a conexão
                     conexao.Open();
@@ -247,14 +241,13 @@ namespace PI___Sistema_Gato_Preto_manga
                         //Adicionar os parâmetros com os valores dos TexBox
                         comando.Parameters.AddWithValue("@titulo", textBoxTitulo.Text);
                         comando.Parameters.AddWithValue("@genero", comboBoxGenero.Text);
-                        comando.Parameters.AddWithValue("@ano_de_lançamento", maskedTextAnoLancamento.Text);
+                        comando.Parameters.AddWithValue("@ano_de_lancamento", maskedTextAnoLancamento.Text);
                         comando.Parameters.AddWithValue("@status", comboBoxStatus.Text);
-                        comando.Parameters.AddWithValue("@volumes", comboBoxVolumes.Text);
+                        comando.Parameters.AddWithValue("@capitulos", comboBoxVolumes.Text);
                         comando.Parameters.AddWithValue("@classificacao_indicativa", comboBoxClassificacaoIndicativa.Text);
-                        comando.Parameters.AddWithValue("@autor", textBoxAutor.Text);
                         comando.Parameters.AddWithValue("@sinopse", richTextBoxSinopse.Text);
-                        comando.Parameters.AddWithValue("@capas", pictureBox1.Text);
-                        comando.Parameters.AddWithValue("@capas", imageBytes);
+                        comando.Parameters.AddWithValue("@autor", textBoxAutor.Text);
+                        comando.Parameters.AddWithValue("@capas", imageBytes); 
 
                         // Executa o comando de inserção
                         comando.ExecuteNonQuery();
