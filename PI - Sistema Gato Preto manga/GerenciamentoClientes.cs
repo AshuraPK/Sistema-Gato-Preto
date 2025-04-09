@@ -26,14 +26,9 @@ namespace PI___Sistema_Gato_Preto_manga
         {
             textBoxNome.Text = "";
             textBoxSenha.Text = "";
-            maskedDataNascimento.Text = "";
             textBoxEmail.Text = "";
             maskedTextBoxCPF.Text = "";
             maskedTextBoxTelefone.Text = "";
-            textBoxPais.Text = "";
-            textBoxEndereco.Text = "";
-            textBoxCidade.Text = "";
-            pictureBox1.Text = "";
             textBoxNome.Focus();
         }
 
@@ -77,72 +72,36 @@ namespace PI___Sistema_Gato_Preto_manga
 
             //defina a inserção de registro no BD
 
-            string query = "INSERT INTO tb_Clientes (nome, dataNascimento, email, telefone, endereco, cidade, estado, cep, pais, cpf, senha, imagem) VALUES (@nome, @dataNascimento, @email, @telefone, @endereco, @cidade, @estado, @cep, @pais, @cpf, @senha, @imagem)";
+            string query = "INSERT INTO tb_Clientes (email, telefone, cpf, senha, nome) VALUES (@email, @telefone, @cpf, @senha, @nome)";
 
             // Crie uma conexão com o BD
 
             using (MySqlConnection conexao = new MySqlConnection(conexaoString))
             {
-
                 try
                 {
-                    // Converter a imagem para um array de bytes
-                    MemoryStream ms = new MemoryStream();
-                    pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
-                    byte[] imageBytes = ms.ToArray();
-                    //Abre a conexão
-                    //Abre a conexão
-                    conexao.Open();
+                    conexao.Open(); // ✅ abre a conexão com o banco de dados
 
-                    //Crie o comando SQL
                     using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
-                        //Adicionar os parâmetros com os valores dos TexBox
-                        comando.Parameters.AddWithValue("@nome", textBoxNome.Text);
-                        comando.Parameters.AddWithValue("@dataNascimento", maskedDataNascimento.Text);
                         comando.Parameters.AddWithValue("@email", textBoxEmail.Text);
                         comando.Parameters.AddWithValue("@telefone", maskedTextBoxTelefone.Text);
-                        comando.Parameters.AddWithValue("@endereco", textBoxEndereco.Text);
-                        comando.Parameters.AddWithValue("@cidade", textBoxCidade.Text);
-                        comando.Parameters.AddWithValue("@estado", textBoxEstado.Text);
-                        comando.Parameters.AddWithValue("@cep", maskedTextBoxCEP.Text);
-                        comando.Parameters.AddWithValue("@pais", textBoxPais.Text);
                         comando.Parameters.AddWithValue("@cpf", maskedTextBoxCPF.Text);
                         comando.Parameters.AddWithValue("@senha", textBoxSenha.Text);
-                        //comando.Parameters.AddWithValue("@imagem", pictureBox1.Text);
-                        comando.Parameters.AddWithValue("@imagem", imageBytes);
+                        comando.Parameters.AddWithValue("@nome", textBoxNome.Text);
 
-                        // Executa o comando de inserção
                         comando.ExecuteNonQuery();
                         MessageBox.Show("Dados inseridos com sucesso!");
                     }
                 }
                 catch (Exception ex)
                 {
-                    // em Caso de erro, exiba mensagem do erro
                     MessageBox.Show("Erro: " + ex.Message);
                 }
-
             }
+
         }
 
-        private void buttonEscolherImg_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog OpenFileDialog = new OpenFileDialog();
-
-            // Criar um OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Definir o filtro para apenas arquivos de imagem
-            openFileDialog.Filter = "Imagens (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-
-            // Se o usuário escolher um arquivo
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Carregar a imagem no PictureBox
-                pictureBox1.Image = new System.Drawing.Bitmap(openFileDialog.FileName);
-            }
-        }
 
         private void buttonConsultarCliente_Click(object sender, EventArgs e)
         {
@@ -153,7 +112,7 @@ namespace PI___Sistema_Gato_Preto_manga
                 using (MySqlConnection consulta = new MySqlConnection(connectionString))
                 {
                     consulta.Open();
-                    string listagem = "SELECT id, nome, dataNascimento, email, telefone, endereco, cidade, estado, cep, pais, cpf, senha, imagem FROM tb_clientes";
+                    string listagem = "SELECT id, email, telefone, cpf, senha, nome FROM tb_clientes";
 
                     using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
                     {
@@ -163,8 +122,8 @@ namespace PI___Sistema_Gato_Preto_manga
 
                         dgvClientes.DataSource = dadosClientes;
 
-                        // ✅ Oculta a coluna de imagem (byte[])
-                        dgvClientes.Columns["imagem"].Visible = false;
+                        // Apenas se a coluna existir. Caso contrário, comente a linha abaixo:
+                        // dgvClientes.Columns["imagem"].Visible = false;
                     }
                 }
             }
@@ -173,6 +132,7 @@ namespace PI___Sistema_Gato_Preto_manga
                 MessageBox.Show("Erro ao listar os Clientes: " + ex.Message);
             }
         }
+
 
 
         private void buttonExcluirCliente_Click(object sender, EventArgs e)

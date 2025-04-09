@@ -92,3 +92,7 @@ C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistem
 C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\bin\Debug\PI - Sistema Gato Preto manga.application
 C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.exe.manifest
 C:\Users\walmir.asribeiro\source\repos\PI - Sistema Gato Preto manga\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.application
+C:\xampp\htdocs\Sistema-Gato-Preto\PI - Sistema Gato Preto manga\bin\Debug\PI - Sistema Gato Preto manga.exe.manifest
+C:\xampp\htdocs\Sistema-Gato-Preto\PI - Sistema Gato Preto manga\bin\Debug\PI - Sistema Gato Preto manga.application
+C:\xampp\htdocs\Sistema-Gato-Preto\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.exe.manifest
+C:\xampp\htdocs\Sistema-Gato-Preto\PI - Sistema Gato Preto manga\obj\Debug\PI - Sistema Gato Preto manga.application

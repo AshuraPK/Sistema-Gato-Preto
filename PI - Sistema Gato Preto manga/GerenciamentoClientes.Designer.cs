@@ -30,41 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerenciamentoClientes));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.buttonLimparCampo = new System.Windows.Forms.Button();
             this.buttonFechar = new System.Windows.Forms.Button();
             this.buttonConsultarCliente = new System.Windows.Forms.Button();
             this.buttonExcluirCliente = new System.Windows.Forms.Button();
             this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.maskedDataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.textBoxEmail = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.textBoxEndereco = new System.Windows.Forms.TextBox();
-            this.textBoxCidade = new System.Windows.Forms.TextBox();
-            this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
-            this.textBoxPais = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.buttonEscolherImg = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxSenha = new System.Windows.Forms.TextBox();
-            this.maskedTextBoxCEP = new System.Windows.Forms.MaskedTextBox();
             this.labelAlert = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,18 +62,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(5, 159);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Data de Nasc";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -114,30 +86,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Telefone";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(5, 276);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Endereço";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(5, 313);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Cidade";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // buttonCadastrar
             // 
@@ -203,61 +151,16 @@
             this.textBoxNome.TabIndex = 1;
             this.textBoxNome.TextChanged += new System.EventHandler(this.textBoxNome_TextChanged);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Location = new System.Drawing.Point(5, 351);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Estado";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.Location = new System.Drawing.Point(5, 386);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(26, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Cep";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label9.Location = new System.Drawing.Point(214, 73);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Pais";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label10.Location = new System.Drawing.Point(218, 118);
+            this.label10.Location = new System.Drawing.Point(5, 160);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 17;
             this.label10.Text = "CPF";
-            // 
-            // maskedDataNascimento
-            // 
-            this.maskedDataNascimento.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedDataNascimento.Location = new System.Drawing.Point(85, 153);
-            this.maskedDataNascimento.Mask = "00/00/0000";
-            this.maskedDataNascimento.Name = "maskedDataNascimento";
-            this.maskedDataNascimento.Size = new System.Drawing.Size(100, 20);
-            this.maskedDataNascimento.TabIndex = 3;
-            this.maskedDataNascimento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedDataNascimento_MaskInputRejected);
             // 
             // textBoxEmail
             // 
@@ -278,50 +181,15 @@
             this.maskedTextBoxTelefone.TabIndex = 5;
             this.maskedTextBoxTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             // 
-            // textBoxEndereco
-            // 
-            this.textBoxEndereco.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxEndereco.Location = new System.Drawing.Point(85, 269);
-            this.textBoxEndereco.Name = "textBoxEndereco";
-            this.textBoxEndereco.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEndereco.TabIndex = 6;
-            this.textBoxEndereco.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // textBoxCidade
-            // 
-            this.textBoxCidade.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxCidade.Location = new System.Drawing.Point(85, 306);
-            this.textBoxCidade.Name = "textBoxCidade";
-            this.textBoxCidade.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCidade.TabIndex = 7;
-            this.textBoxCidade.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // textBoxEstado
-            // 
-            this.textBoxEstado.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxEstado.Location = new System.Drawing.Point(85, 344);
-            this.textBoxEstado.Name = "textBoxEstado";
-            this.textBoxEstado.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEstado.TabIndex = 8;
-            this.textBoxEstado.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
             // maskedTextBoxCPF
             // 
             this.maskedTextBoxCPF.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedTextBoxCPF.Location = new System.Drawing.Point(259, 111);
+            this.maskedTextBoxCPF.Location = new System.Drawing.Point(85, 153);
             this.maskedTextBoxCPF.Mask = "000.000.000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
-            this.maskedTextBoxCPF.Size = new System.Drawing.Size(142, 20);
+            this.maskedTextBoxCPF.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBoxCPF.TabIndex = 11;
             this.maskedTextBoxCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCPF_MaskInputRejected);
-            // 
-            // textBoxPais
-            // 
-            this.textBoxPais.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxPais.Location = new System.Drawing.Point(259, 70);
-            this.textBoxPais.Name = "textBoxPais";
-            this.textBoxPais.Size = new System.Drawing.Size(142, 20);
-            this.textBoxPais.TabIndex = 10;
             // 
             // dgvClientes
             // 
@@ -346,38 +214,6 @@
             this.label11.TabIndex = 28;
             this.label11.Text = "Cliente ADD";
             // 
-            // buttonEscolherImg
-            // 
-            this.buttonEscolherImg.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonEscolherImg.Location = new System.Drawing.Point(280, 285);
-            this.buttonEscolherImg.Name = "buttonEscolherImg";
-            this.buttonEscolherImg.Size = new System.Drawing.Size(137, 23);
-            this.buttonEscolherImg.TabIndex = 12;
-            this.buttonEscolherImg.Text = "Escolher imagem";
-            this.buttonEscolherImg.UseVisualStyleBackColor = false;
-            this.buttonEscolherImg.Click += new System.EventHandler(this.buttonEscolherImg_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.Location = new System.Drawing.Point(247, 179);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 100);
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label12.Location = new System.Drawing.Point(277, 163);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Imagem";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -400,22 +236,12 @@
             this.textBoxSenha.TabIndex = 2;
             this.textBoxSenha.TextChanged += new System.EventHandler(this.textBoxSenha_TextChanged);
             // 
-            // maskedTextBoxCEP
-            // 
-            this.maskedTextBoxCEP.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.maskedTextBoxCEP.Location = new System.Drawing.Point(85, 379);
-            this.maskedTextBoxCEP.Mask = "00000-999";
-            this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
-            this.maskedTextBoxCEP.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBoxCEP.TabIndex = 9;
-            this.maskedTextBoxCEP.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCEP_MaskInputRejected);
-            // 
             // labelAlert
             // 
             this.labelAlert.AutoSize = true;
             this.labelAlert.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelAlert.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.labelAlert.Location = new System.Drawing.Point(411, 135);
+            this.labelAlert.Location = new System.Drawing.Point(209, 153);
             this.labelAlert.Name = "labelAlert";
             this.labelAlert.Size = new System.Drawing.Size(0, 13);
             this.labelAlert.TabIndex = 37;
@@ -433,43 +259,27 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelAlert);
-            this.Controls.Add(this.maskedTextBoxCEP);
             this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.buttonEscolherImg);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvClientes);
-            this.Controls.Add(this.textBoxPais);
             this.Controls.Add(this.maskedTextBoxCPF);
-            this.Controls.Add(this.textBoxEstado);
-            this.Controls.Add(this.textBoxCidade);
-            this.Controls.Add(this.textBoxEndereco);
             this.Controls.Add(this.maskedTextBoxTelefone);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.maskedDataNascimento);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.buttonExcluirCliente);
             this.Controls.Add(this.buttonConsultarCliente);
             this.Controls.Add(this.buttonFechar);
             this.Controls.Add(this.buttonLimparCampo);
             this.Controls.Add(this.buttonCadastrar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "GerenciamentoClientes";
             this.Text = "GerenciamentoClientes";
             this.Load += new System.EventHandler(this.GerenciamentoClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,37 +288,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonCadastrar;
         private System.Windows.Forms.Button buttonLimparCampo;
         private System.Windows.Forms.Button buttonFechar;
         private System.Windows.Forms.Button buttonConsultarCliente;
         private System.Windows.Forms.Button buttonExcluirCliente;
         private System.Windows.Forms.TextBox textBoxNome;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox maskedDataNascimento;
         private System.Windows.Forms.MaskedTextBox textBoxEmail;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefone;
-        private System.Windows.Forms.TextBox textBoxEndereco;
-        private System.Windows.Forms.TextBox textBoxCidade;
-        private System.Windows.Forms.TextBox textBoxEstado;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
-        private System.Windows.Forms.TextBox textBoxPais;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button buttonEscolherImg;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxSenha;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxCEP;
         private System.Windows.Forms.Label labelAlert;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
