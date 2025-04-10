@@ -35,7 +35,7 @@ namespace PI___Sistema_Gato_Preto_manga
 
                 if (result == DialogResult.Yes)
                 {
-                    string connectionString = "Server=localhost; Port=3306; Database= bd_gato_preto; Uid=root; Pwd=;";
+                    string connectionString = "Server=185.239.210.154; Port=3306; Database=u257619785_gato_preto; Uid=u257619785_gato; Pwd=Gpm@2025";
 
                     try
                     {
@@ -182,7 +182,7 @@ namespace PI___Sistema_Gato_Preto_manga
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;";
+            string connectionString = "Server=185.239.210.154; Port=3306; Database=u257619785_gato_preto; Uid=u257619785_gato; Pwd=Gpm@2025";
 
             try
             {
@@ -214,7 +214,7 @@ namespace PI___Sistema_Gato_Preto_manga
         {
 
             //DefIna sua string de conexão com o banco
-            string conexaoString = "Server=localhost; Port=3306; Database=bd_gato_preto; Uid=root; Pwd=;";
+            string conexaoString = "Server=185.239.210.154; Port=3306; Database=u257619785_gato_preto; Uid=u257619785_gato; Pwd=Gpm@2025";
 
             //defina a inserção de registro no BD
 
